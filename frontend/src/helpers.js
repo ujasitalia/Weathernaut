@@ -14,7 +14,7 @@ export const emailValidator = (email) => {
 // the password should contain a capital letter, a small letter, a number, and a special character and has to 6 or more characters
 export const passwordValidator = (password) => {
   const re =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&/])[A-Za-z\d@$!%*?&]{6,}$/;
   if (re.test(password)) {
     return true;
   } else {
