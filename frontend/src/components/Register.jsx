@@ -63,7 +63,13 @@ function Register() {
       user.setEmail(res.data.email);
       navigate("/");
     } catch (error) {
-      setError(error.response.data.error[1]);
+      if (error.response.data.error[1] === "invalid password") {
+        setError(
+          " Password must contain at least 6 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character [@$!%*?&]."
+        );
+      } else {
+        setError(error.response.data.error[1]);
+      }
     }
   };
 
