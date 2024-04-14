@@ -25,13 +25,7 @@ app.use(morgan("common"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: ["https://weathernaut.vercel.app"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "Healthy" });
