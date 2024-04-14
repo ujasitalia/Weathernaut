@@ -1,0 +1,19 @@
+{
+   "version": 2,
+   "builds": [
+     { "src": "*.js", "use": "@vercel/node" },
+     { "src": "models/*.js", "use": "@vercel/node" },
+     { "src": "routes/*.js", "use": "@vercel/node" },
+     { "src": "data/*.js", "use": "@vercel/node" }
+   ],
+   "routes": [
+     {
+       "src": "/user/(.*)",
+       "dest": "/server.js"
+     },
+     {
+       "src": "/weather/(.*)",
+       "dest": "/server.js"
+     }
+   ]
+}
