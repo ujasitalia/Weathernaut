@@ -51,14 +51,17 @@ function Register() {
 
     // send the data to the server
     try {
-      const res = await axios.post("http://localhost:5000/user/register", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://weathernaut-api.onrender.com/user/register",
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("token_data", JSON.stringify(res.data.token));
       // localStorage.setItem("id", JSON.stringify(res.data.id));
       user.setEmail(res.data.email);
-      navigate('/')
+      navigate("/");
     } catch (error) {
       setError(error.response.data.error[1]);
     }

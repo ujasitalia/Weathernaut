@@ -40,7 +40,7 @@ function Weather() {
         const token = JSON.parse(localStorage.getItem("token_data"));
         try {
           const iconResponse = await axios.get(
-            `http://localhost:5000/weather/icon/${weatherData.weather[0].icon}`,
+            `https://weathernaut-api.onrender.com/weather/icon/${weatherData.weather[0].icon}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -62,7 +62,7 @@ function Weather() {
       if (city) {
         const token = JSON.parse(localStorage.getItem("token_data"));
         const response = await axios.get(
-          `http://localhost:5000/weather/city/${city}`,
+          `https://weathernaut-api.onrender.com/weather/city/${city}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

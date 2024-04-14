@@ -19,7 +19,7 @@ function Login() {
       navigate("/");
     }
 
-    if(message){
+    if (message) {
       setError(message);
     }
   });
@@ -52,15 +52,18 @@ function Login() {
 
     // send the data to the server
     try {
-      const res = await axios.post("http://localhost:5000/user/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://weathernaut-api.onrender.com/user/login",
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("token_data", JSON.stringify(res.data.token));
       user.setEmail(res.data.email);
       navigate("/");
     } catch (error) {
-      // console.log(error.response.data.error[1]);
+      console.log(error);
       setError(error.response.data.error[1]);
     }
   };
