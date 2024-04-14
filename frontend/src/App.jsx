@@ -23,11 +23,14 @@ function App() {
   useEffect(() => {
     const getUser = async () => {
       const token = JSON.parse(localStorage.getItem("token_data"));
-      const user = await axios.get("http://localhost:5000/user/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const user = await axios.get(
+        "https://weathernaut-api.onrender.com/user/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setEmail(user.data.email);
     };
 
@@ -40,7 +43,7 @@ function App() {
       console.log(error.message);
     }
   }, []);
-  
+
   return (
     <div className="App">
       <UserContext.Provider value={{ email, setEmail }}>
